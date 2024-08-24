@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, input, Output } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NumberInputComponentComponent } from './number-input-component/number-input-component.component';
-import { GameResultComponentComponent } from './game-result-component/game-result-component.component';
-
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NumberInputComponentComponent,GameResultComponentComponent],
+  imports: [RouterOutlet,NumberInputComponentComponent, CommonModule,FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'Calculadora';
-  valor1 : number | undefined;
-  valor2 : number | undefined;
-  resultado: number | undefined;
-  sumar(){
-   
+  @Output() resultado = new EventEmitter<number>() 
+  valor1p : number|undefined;
+  valor2p : number |undefined;
+  sumar(valor1p : number, valor2p: number){
+    this.resultado.emit(this.valor1p)
   }
 }

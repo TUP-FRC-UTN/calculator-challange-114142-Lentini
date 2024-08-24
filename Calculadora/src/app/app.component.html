@@ -1,1 +1,3 @@
-<app-number-input-component (sumar)="sumar()"></app-number-input-component>
+<input type="number"  [(ngModel)]="valor1p">
+<input type="number" [(ngModel)]="valor2p">
+<app-number-input-component (sumar)="sumar($event, $event)"></app-number-input-component>
