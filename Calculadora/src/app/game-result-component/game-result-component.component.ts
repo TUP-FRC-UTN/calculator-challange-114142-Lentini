@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-game-result-component',
@@ -9,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class GameResultComponentComponent {
 
+  @Input() valor1: number = 0;
+  @Input() valor2: number = 0;
+  result : number | undefined;
+  ngOnChanges(changes : SimpleChange){
+    this.result = this.valor1 + this.valor2;
+  }
 }
